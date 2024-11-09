@@ -63,9 +63,9 @@ const SvgComponent = ({number}) => {
                                 width={137}
                                 height={142}
                                 style={{
-                                    transform: `translate(${80 + (i % 3) * 60}px, ${
-                                        123 + Math.floor(i / 3) * 41
-                                    }px) scale(0.24)`,
+                                    '--translateX': `${80 + (i % 3) * 60}px`,
+                                    '--translateY': `${123 + Math.floor(i / 3) * 41}px`,
+                                    '--scale': '0.24'
                                 }}
                                 xlinkHref={btn}
                                 onLoad={handleImageLoad}

@@ -1,0 +1,78 @@
+.main-wrapper {
+  height: 100vh;
+  height: 100dvh; // fallback
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  flex-direction: column;
+
+  .phone-base {
+    width: 15rem;
+
+    @keyframes press-animation {
+      0% {
+        height: inherit;
+      }
+      50% {
+        height: 125px;
+      }
+      100% {
+        height: inherit;
+      }
+    }
+
+    @for $i from 1 through 9 {
+      #btn-#{$i} {
+        filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.5));
+        position: relative;
+
+        &.press {
+          filter: drop-shadow(0px 4px 6px black) brightness(0.95);
+          border-radius: 50%;
+          animation: press-animation 0.2s ease-in-out;
+        }
+
+      }
+    }
+  }
+
+  .mobile-number-input {
+    box-sizing: border-box;
+    width: 16rem;
+    border-radius: 0.5rem;
+    border: 1.5px solid rgba(0, 0, 0, 0.5);
+    position: relative;
+    transition: border 0.2s ease-in-out;
+
+    &:focus-within {
+      border: 1.5px solid #5f27cd;
+    }
+
+    &::before {
+      position: absolute;
+      content: 'Mobile number';
+      top: -10px;
+      left: 0.5rem;
+      height: 20px;
+      background: #fff;
+      font-size: 0.8rem;
+      display: flex;
+      padding: 0 0.5rem;
+      align-items: center;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    input {
+      padding: 1rem;
+      appearance: none;
+      margin: 0;
+      width: 100%;
+      box-sizing: border-box;
+      border: none;
+      outline: none;
+      border-radius: 0.5rem;
+      font-size: 1.2rem;
+    }
+  }
+}
